@@ -73,3 +73,10 @@ The script assumes training results are stored in /results/ with each algorithm 
 
 ---
 
+## Acknowledgements
+
+This repository is adapted and extended from the original implementation:
+
+* DeepMind DQN Zoo: https://github.com/google-deepmind/dqn_zoo
+
+We build upon the original codebase and extend it with additional algorithms, including the proposed **Octopus** framework and related variants.
