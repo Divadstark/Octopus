@@ -16,13 +16,13 @@ A README for training the **Octopus** agent and plotting results.
 
 ## Agents Implemented
 
-1. **Double DQN**: From the paper "Deep Reinforcement Learning with Double Q-learning"
-2. **Prioritized DQN**: From the paper "Prioritized Experience Replay"
-3. **C51**: From the paper "A Distributional Perspective on Reinforcement Learning"
-4. **QR—DQN**: From the paper "Distributional Reinforcement Learning with Quantile Regression"
-5. **Rainbow**: From the paper "Rainbow: Combining Improvements in Deep Reinforcement Learning“
-6. **MDQN**: From the paper "Munchausen Reinforcement Learning"
-7. **MIQN_star**: From the paper "Munchausen Reinforcement Learning", MIQN_star is equipped with same enhancements as Octopus. 
+1. **Double DQN**: From the paper "Deep Reinforcement Learning with Double Q-learning": https://arxiv.org/abs/1509.06461
+2. **Prioritized DQN**: From the paper "Prioritized Experience Replay": https://arxiv.org/abs/1511.05952
+3. **C51**: From the paper "A Distributional Perspective on Reinforcement Learning": https://arxiv.org/abs/1707.06887
+4. **QR—DQN**: From the paper "Distributional Reinforcement Learning with Quantile Regression": https://arxiv.org/abs/1710.10044
+5. **Rainbow**: From the paper "Rainbow: Combining Improvements in Deep Reinforcement Learning": https://arxiv.org/abs/1710.02298
+6. **MDQN**: From the paper "Munchausen Reinforcement Learning": https://arxiv.org/abs/2007.14430
+7. **MIQN_star**: From the paper "Munchausen Reinforcement Learning", MIQN_star is equipped with same enhancements as Octopus. https://arxiv.org/abs/2007.14430
 8. **Octopus**: The proposed framework
 
 ---
