@@ -1,6 +1,25 @@
-# *Quick Start Guide* 
 
-A README for training the **Octopus** agent and plotting results.
+# *Octopus
+Octopus is a reinforcement learning repository built around the proposed Octopus agent, a regularized distributional DQN method for improved stability and performance.
+
+It is designed to be self-contained, readable, and extensible. The repository includes Octopus together with standard baseline agents, implemented in JAX, Haiku, and RLax, and provides a unified framework for training and evaluation on the Atari 2600 benchmark.
+
+Beyond Atari benchmarks, the Octopus framework is intended to be applicable to real-world sequential decision-making problems, including electricity network optimization. This application is part of ongoing work and is not included in the current repository.
+
+---
+
+## Agents Implemented
+
+| Agent         | Description                                                                 | Paper |
+|---------------|------------------------------------------------------------------------------|-------|
+| Double DQN    | Double Q-learning to reduce overestimation bias                              | https://arxiv.org/abs/1509.06461 |
+| Prioritized DQN | Experience replay with prioritized sampling                                 | https://arxiv.org/abs/1511.05952 |
+| C51           | Categorical distributional reinforcement learning                            | https://arxiv.org/abs/1707.06887 |
+| QR-DQN        | Quantile-based distributional reinforcement learning                         | https://arxiv.org/abs/1710.10044 |
+| Rainbow       | Integrated DQN with multiple improvements (Double, Dueling, PER, etc.)       | https://arxiv.org/abs/1710.02298 |
+| MDQN          | Munchausen reinforcement learning with reward augmentation                   | https://arxiv.org/abs/2007.14430 |
+| MIQN*         | Munchausen-based distributional variant with enhancements aligned to Octopus | https://arxiv.org/abs/2007.14430 |
+| Octopus       | Proposed regularized distributional RL framework                             | — |
 
 ---
 
@@ -12,18 +31,6 @@ A README for training the **Octopus** agent and plotting results.
 | other dirs  | other baselines      |
 | root        | `plot.py`, `requirements.txt` |
 
----
-
-## Agents Implemented
-
-1. **Double DQN**: From the paper "Deep Reinforcement Learning with Double Q-learning": https://arxiv.org/abs/1509.06461
-2. **Prioritized DQN**: From the paper "Prioritized Experience Replay": https://arxiv.org/abs/1511.05952
-3. **C51**: From the paper "A Distributional Perspective on Reinforcement Learning": https://arxiv.org/abs/1707.06887
-4. **QR—DQN**: From the paper "Distributional Reinforcement Learning with Quantile Regression": https://arxiv.org/abs/1710.10044
-5. **Rainbow**: From the paper "Rainbow: Combining Improvements in Deep Reinforcement Learning": https://arxiv.org/abs/1710.02298
-6. **MDQN**: From the paper "Munchausen Reinforcement Learning": https://arxiv.org/abs/2007.14430
-7. **MIQN_star**: From the paper "Munchausen Reinforcement Learning", MIQN_star is equipped with same enhancements as Octopus. https://arxiv.org/abs/2007.14430
-8. **Octopus**: The proposed framework
 
 ---
 
