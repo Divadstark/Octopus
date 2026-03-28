@@ -1,4 +1,4 @@
-![human_normalized_score_3 (1)](https://github.com/user-attachments/assets/fffc3305-8f03-4256-9862-59da8a440d07)
+![human_normalized_score_3](https://github.com/user-attachments/assets/fc6cc6f2-7e60-4fe9-8c12-10ec601176ea)![human_normalized_score_3 (1)](https://github.com/user-attachments/assets/fffc3305-8f03-4256-9862-59da8a440d07)
 # Octopus
 Octopus is a reinforcement learning repository built around the proposed Octopus agent, a regularized distributional DQN method for improved stability and performance.
 
@@ -23,7 +23,8 @@ Beyond Atari benchmarks, the Octopus framework is intended to be applicable to r
 
 
 Plot of median human-normalized score over 15 Atari games for each agent:
-![Uploading human_normalized_score<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="843.84" height="422.12" viewBox="0 0 843.84 422.12">
+
+![Uploading hum<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="843.84" height="422.12" viewBox="0 0 843.84 422.12">
 <defs>
 <clipPath id="clip_1">
 <path transform="matrix(1,0,0,-1,0,422.12)" d="M69.646739 95.24H399.1172V414.91999H69.646739Z"/>
@@ -478,7 +479,7 @@ Plot of median human-normalized score over 15 Atari games for each agent:
 <path transform="matrix(1,0,0,-1,0,422.12)" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" fill="none" stroke="#ff0000" d="M726.6307 20.51956H740.6307 754.6307"/>
 <text xml:space="preserve" transform="matrix(1 0 -0 1 0 422.12)" font-size="13.947696" font-family="Nimbus Roman No9 L"><tspan y="-15.61956" x="761.6307 771.68698 777.8658 781.7293 788.7032 795.67709 802.65097">Octopus</tspan></text>
 </svg>
-_3 (1).svg…]()
+an_normalized_score_3.svg…]()
 
 
 ---
