@@ -53,10 +53,7 @@ Evaluation learning curves across 15 Atari games, measuring policy performance w
 
 Octopus extends distributional reinforcement learning by incorporating KL-based regularization into the value distribution update:
 
-$$
-Z(s, a) \stackrel{D}{=} R(s, a) + \alpha \tau \log \pi(a | s)
-+ \gamma \left(Z(S', A') - \tau \log \pi(A' | S')\right)
-$$
+$$Z(s, a) \stackrel{D}{=} R(s, a) + \alpha \tau \log \pi(a | s)+ \gamma \left(Z(S', A') - \tau \log \pi(A' |S')\right)$$
 
 where:
 - $Z(s,a)$: return distribution  
