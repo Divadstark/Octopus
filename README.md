@@ -1,5 +1,5 @@
 
-# *Octopus
+# Octopus
 Octopus is a reinforcement learning repository built around the proposed Octopus agent, a regularized distributional DQN method for improved stability and performance.
 
 It is designed to be self-contained, readable, and extensible. The repository includes Octopus together with standard baseline agents, implemented in JAX, Haiku, and RLax, and provides a unified framework for training and evaluation on the Atari 2600 benchmark.
@@ -10,16 +10,18 @@ Beyond Atari benchmarks, the Octopus framework is intended to be applicable to r
 
 ## Agents Implemented
 
-| Agent         | Description                                                                 | Paper |
-|---------------|------------------------------------------------------------------------------|-------|
-| Double DQN    | Double Q-learning to reduce overestimation bias                              | https://arxiv.org/abs/1509.06461 |
-| Prioritized DQN | Experience replay with prioritized sampling                                 | https://arxiv.org/abs/1511.05952 |
-| C51           | Categorical distributional reinforcement learning                            | https://arxiv.org/abs/1707.06887 |
-| QR-DQN        | Quantile-based distributional reinforcement learning                         | https://arxiv.org/abs/1710.10044 |
-| Rainbow       | Integrated DQN with multiple improvements (Double, Dueling, PER, etc.)       | https://arxiv.org/abs/1710.02298 |
-| MDQN          | Munchausen reinforcement learning with reward augmentation                   | https://arxiv.org/abs/2007.14430 |
-| MIQN*         | Munchausen-based distributional variant with enhancements aligned to Octopus | https://arxiv.org/abs/2007.14430 |
-| Octopus       | Proposed regularized distributional RL framework                             | — |
+## Agents Implemented
+
+| Agent      | Method Summary                                                                 | Reference |
+|------------|--------------------------------------------------------------------------------|-----------|
+| Double DQN | Reduces overestimation via decoupled action selection and evaluation          | [Deep Reinforcement Learning with Double Q-learning](https://arxiv.org/abs/1509.06461) |
+| Prioritized DQN | Improves sample efficiency through prioritized experience replay        | [Prioritized Experience Replay](https://arxiv.org/abs/1511.05952) |
+| C51        | Learns a categorical approximation of the return distribution                 | [A Distributional Perspective on Reinforcement Learning](https://arxiv.org/abs/1707.06887) |
+| QR-DQN     | Models return distribution via quantile regression                            | [Distributional Reinforcement Learning with Quantile Regression](https://arxiv.org/abs/1710.10044) |
+| Rainbow    | Combines multiple DQN improvements into a unified framework                   | [Rainbow: Combining Improvements in Deep Reinforcement Learning](https://arxiv.org/abs/1710.02298) |
+| MDQN       | Incorporates Munchausen reward shaping for improved exploration and stability | [Munchausen Reinforcement Learning](https://arxiv.org/abs/2007.14430) |
+| MIQN*      | Munchausen-based distributional variant with enhancements aligned to Octopus  | [Munchausen Reinforcement Learning](https://arxiv.org/abs/2007.14430) |
+| Octopus    | Regularized distributional RL framework with dynamic scaling                  | — |
 
 ---
 
