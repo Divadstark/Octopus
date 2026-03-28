@@ -88,13 +88,44 @@ Octopus integrates distributional RL with adaptive regularization:
 
 ---
 
-## Directory map
+## Learning Curves
 
-| Folder      | Contents (core files)         |
-|-------------|-------------------------------|
-| `octopus/`  | `agent.py`, `run_atari.py`    |
-| other dirs  | other baselines      |
-| root        | `plot.py`, `requirements.txt` |
+### Training Performance
+
+Training learning curves across 15 Atari games, showing episode return over environment frames.
+
+<p align="center">
+  <img src="multiple_games_train.svg" width="800"/>
+</p>
+
+### Evaluation Performance
+
+Evaluation learning curves across 15 Atari games, measuring policy performance without exploration noise.
+
+<p align="center">
+  <img src="assets/multiple_games_eval.svg" width="800"/>
+</p>
+
+---
+
+## Code Structure
+
+Each agent directory contains an implementation of a DQN-based variant configured for Atari experiments.  
+Within each agent folder:
+
+- `agent.py` defines the agent logic, including action selection, learning updates, and agent state management.
+- `run_atari.py` provides the training entry point for running the agent on Atari environments.
+
+Shared modules at the repository root provide common infrastructure used across agents:
+
+- `networks.py` defines the Haiku neural network architectures used by the agents.
+- `replay.py` implements experience replay components.
+- `processors.py` contains standard Atari preprocessing utilities.
+- `parts.py` provides shared training and evaluation utilities, including logging, statistics accumulation, and the main run loop.
+- `atari_data.py` contains utilities related to Atari benchmark data handling.
+- `gym_atari.py` provides Atari environment setup and wrappers.
+- `plot.py` generates performance plots from saved training results.
+- `assets/` stores figures of experiment results used in the README.
 
 
 ---
