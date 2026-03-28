@@ -26,6 +26,69 @@ Plot of median human-normalized score over 15 Atari games for each agent:
 
 ---
 
+---
+
+## Octopus Agent
+
+The Octopus agent extends distributional reinforcement learning by incorporating KL-based regularization into the value distribution update.
+
+The distributional Bellman update is defined as:
+
+$$
+Z(s, a) \stackrel{D}{=} R(s, a) + \alpha \tau \log \pi(a | s)
++ \gamma \left(Z(S', A') - \tau \log \pi(A' | S')\right)
+$$
+
+where $Z(s,a)$ denotes the return distribution, $R(s,a)$ is the reward, and $\pi(a|s)$ is the policy. The additional log-policy terms introduce entropy-based regularization into both immediate and future returns.
+
+---
+
+### Bellman Operator
+
+Let $\mathcal{Z}$ denote the space of value distributions. The Octopus Bellman operator is defined as:
+
+$$
+\mathcal{T}^{\pi} Z(s,a) \stackrel{D}{=}
+R(s,a) + \alpha \tau \log \pi(a|s)
++ \gamma \left(Z(S', A') - \tau \log \pi(A'|S')\right)
+$$
+
+where $S' \sim P(\cdot|s,a)$ and $A' \sim \pi(\cdot|S')$.
+
+---
+
+### Dynamic Regularization Scaling (DRS)
+
+To mitigate the overly conservative behavior induced by strong regularization, we introduce a **Dynamic Regularization Scaling (DRS)** mechanism.
+
+The scaling factor $\psi(k)$ evolves over training iterations:
+
+$$
+\psi(k) =
+\begin{cases}
+0 & k < K_{\min} \\
+\frac{k - K_{\min}}{K_{\max} - K_{\min}} \psi_{\max} & K_{\min} \le k \le K_{\max}
+\end{cases}
+$$
+
+This schedule gradually increases the strength of regularization during training:
+
+- **Early stage**: weak regularization → encourages exploration  
+- **Mid stage**: moderate regularization → stabilizes learning  
+- **Late stage**: strong regularization → improves convergence stability  
+
+---
+
+### Key Idea
+
+Octopus integrates distributional RL with adaptive regularization:
+
+- KL-based regularization improves policy stability  
+- Distributional learning captures uncertainty in returns  
+- DRS balances exploration and stability across training  
+
+---
+
 ## Directory map
 
 | Folder      | Contents (core files)         |
