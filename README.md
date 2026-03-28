@@ -95,7 +95,7 @@ Octopus integrates distributional RL with adaptive regularization:
 Training learning curves across 15 Atari games, showing episode return over environment frames.
 
 <p align="center">
-  <img src="multiple_games_train.svg" width="800"/>
+  <img src="assets/multiple_games_train.svg" width="800"/>
 </p>
 
 ### Evaluation Performance
@@ -130,49 +130,92 @@ Shared modules at the repository root provide common infrastructure used across 
 
 ---
 
-##  Setup
+## Getting Started
+
+### Environment Setup
+
+Create a Python (≥3.9) virtual environment and install dependencies:
 
 ```bash
-# create & activate a Python ≥3.9 env
 python -m venv .venv
 source .venv/bin/activate
 
-# install dependencies
 pip install -r requirements.txt
+```
 
-# one-off: import Atari ROMs
+Import Atari ROMs (required for training):
+
+```bash
 python -m atari_py.import_roms /path/to/roms
 ```
 
 ---
 
-## Train the listed  agent
-To train an agent on an Atari game, navigate to the corresponding directory and run:
+### Training
+
+Each agent is implemented in its own directory. To train an agent on an Atari game:
 
 ```bash
-cd [agent name]
-python run_atari.py   --environment_name amidar --seed=1 --results_csv_path /results/[agent name]_amidar_seed1.csv
+cd <agent_name>
+python run_atari.py \
+  --environment_name amidar \
+  --seed 1 \
+  --results_csv_path ../results/<agent_name>_amidar_seed1.csv
 ```
-All the algorithms are used as this.
 
-*Key flags*:  
-`--environment_name` (Atari game to train on), 
+**Key arguments:**
 
-`--seed`(Random seed for reproducibility),
+- `--environment_name`: Atari game (e.g., `amidar`, `pong`, `breakout`)
+- `--seed`: random seed for reproducibility
+- `--results_csv_path`: path to save training metrics
 
-`--results_csv_path` (Output path for training metrics CSV file).
+All agents share the same training interface for consistent benchmarking.
 
 ---
 
-## Plot human-normalised returns
+### Evaluation and Plotting
 
-To generate human-normalized score plots:
+To generate human-normalized performance plots:
+
 ```bash
-python plot.py 
+python plot.py
 ```
-This creates `normalized_score.pdf` in the working directory.
 
-The script assumes training results are stored in /results/ with each algorithm having its own subdirectory (Rainbow, C51, Double_Q, Prioritized, MDQN, MIQN*, QR-DQN, and Octopus). Within each algorithm's folder, CSV files should follow the naming pattern of algorithm name, game name, and seed number (e.g., `results_octopus_amidar_seed1.csv`).
+This produces `normalized_score.pdf` in the working directory.
+
+**Expected results structure:**
+
+```text
+results/
+  ├── Octopus/
+  ├── Rainbow/
+  ├── C51/
+  ├── Double_Q/
+  ├── Prioritized/
+  ├── MDQN/
+  ├── MIQN_star/
+  └── QR-DQN/
+```
+
+Each directory should contain CSV files named as:
+
+```text
+results_<agent>_<game>_seed<seed>.csv
+```
+
+For example:
+
+```text
+results_octopus_amidar_seed1.csv
+```
+
+---
+
+### Reproducibility
+
+- All experiments are controlled via explicit random seeds.
+- A unified training interface ensures consistent evaluation across agents.
+- Results can be directly aggregated and visualized using the provided plotting utilities.
 
 ---
 
