@@ -70,7 +70,7 @@ This schedule gradually increases the strength of regularization during training
 - **Late stage**: strong regularization → improves convergence stability  
 
 Ablation study evaluating the impact of Dynamic Regularization Scaling (DRS) across 15 Atari games:
-<img src="https://raw.githubusercontent.com/Divadstark/Octopus/main/ablation_all.svg" width="400"/>
+<img src="https://raw.githubusercontent.com/Divadstark/Octopus/main/ablation_all.svg" width="450"/>
 
 ---
 
