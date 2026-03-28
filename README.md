@@ -2,13 +2,11 @@
 # Octopus
 Octopus is a reinforcement learning repository built around the proposed Octopus agent, a regularized distributional DQN method for improved stability and performance.
 
-It is designed to be self-contained, readable, and extensible. The repository includes Octopus together with standard baseline agents, implemented in JAX, Haiku, and RLax, and provides a unified framework for training and evaluation on the Atari 2600 benchmark.
+It is designed to be self-contained, and extensible. The repository includes Octopus together with standard baseline agents, implemented in JAX, Haiku, and RLax, and provides a unified framework for training and evaluation on the Atari 2600 benchmark.
 
 Beyond Atari benchmarks, the Octopus framework is intended to be applicable to real-world sequential decision-making problems, including electricity network optimization. This application is part of ongoing work and is not included in the current repository.
 
 ---
-
-## Agents Implemented
 
 ## Agents Implemented
 
@@ -22,6 +20,10 @@ Beyond Atari benchmarks, the Octopus framework is intended to be applicable to r
 | MDQN       | Incorporates Munchausen reward shaping for improved exploration and stability | [Munchausen Reinforcement Learning](https://arxiv.org/abs/2007.14430) |
 | MIQN*      | Munchausen-based distributional variant with enhancements aligned to Octopus  | [Munchausen Reinforcement Learning](https://arxiv.org/abs/2007.14430) |
 | Octopus    | Regularized distributional RL framework with dynamic scaling                  | — |
+
+
+Plot of median human-normalized score over 15 Atari games for each agent:
+<img width="843" height="422" alt="human_normalized_score" src="https://github.com/user-attachments/assets/2ba75e19-dc59-4df6-8108-d00f88b43903" />
 
 ---
 
