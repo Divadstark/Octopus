@@ -34,10 +34,7 @@ The Octopus agent extends distributional reinforcement learning by incorporating
 
 The distributional Bellman update is defined as:
 
-$$
-Z(s, a) \stackrel{D}{=} R(s, a) + \alpha \tau \log \pi(a | s)
-+ \gamma \left(Z(S', A') - \tau \log \pi(A' | S')\right)
-$$
+$$Z(s, a) \stackrel{D}{=} R(s, a) + \alpha \tau \log \pi(a | s) + \gamma \left(Z(S', A') - \tau \log \pi(A' | S')\right)$$
 
 where $Z(s,a)$ denotes the return distribution, $R(s,a)$ is the reward, and $\pi(a|s)$ is the policy. The additional log-policy terms introduce entropy-based regularization into both immediate and future returns.
 
@@ -47,11 +44,7 @@ where $Z(s,a)$ denotes the return distribution, $R(s,a)$ is the reward, and $\pi
 
 Let $\mathcal{Z}$ denote the space of value distributions. The Octopus Bellman operator is defined as:
 
-$$
-\mathcal{T}^{\pi} Z(s,a) \stackrel{D}{=}
-R(s,a) + \alpha \tau \log \pi(a|s)
-+ \gamma \left(Z(S', A') - \tau \log \pi(A'|S')\right)
-$$
+$$\mathcal{T}^{\pi} Z(s,a) \stackrel{D}{=} R(s,a) + \alpha \tau \log \pi(a|s) + \gamma \left(Z(S', A') - \tau \log \pi(A'|S')\right)$$
 
 where $S' \sim P(\cdot|s,a)$ and $A' \sim \pi(\cdot|S')$.
 
