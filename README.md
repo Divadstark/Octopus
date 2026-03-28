@@ -22,7 +22,7 @@ Beyond Atari benchmarks, the Octopus framework is intended to be applicable to r
 
 
 Plot of median human-normalized score over 15 Atari games for each agent:
-
+![Human Normalized Score](./human_normalized_score.svg)
 
 ---
 
