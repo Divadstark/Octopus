@@ -1,7 +1,7 @@
 # Octopus
 Octopus is a reinforcement learning repository built around the proposed Octopus agent, a regularized distributional DQN method for improved stability and performance.
 
-It is designed to be self-contained, and extensible. The repository includes Octopus together with standard baseline agents, implemented in JAX, Haiku, and RLax, and provides a unified framework for training and evaluation on the Atari 2600 benchmark.
+It is designed to be self-contained and extensible. The repository includes Octopus together with standard baseline agents, implemented in JAX, Haiku, and RLax, and provides a unified framework for training and evaluation on the Atari 2600 benchmark.
 
 Beyond Atari benchmarks, the Octopus framework is intended to be applicable to real-world sequential decision-making problems, including electricity network optimization. This application is part of ongoing work and is not included in the current repository.
 
@@ -21,7 +21,7 @@ Beyond Atari benchmarks, the Octopus framework is intended to be applicable to r
 | Octopus    | Regularized distributional RL framework with dynamic scaling                  | — |
 
 
-Plot of median human-normalized score over 15 Atari games for each agent:
+Median human-normalized return across 15 Atari games for all agents:
 <p align="center">
   <img src="assets/human_normalized_score.svg" width="700"/>
 </p>
@@ -29,34 +29,42 @@ Plot of median human-normalized score over 15 Atari games for each agent:
 
 ---
 
+## Learning Curves
+
+### Training Performance
+
+Training learning curves across 15 Atari games, showing episode return as a function of environment frames.
+
+<p align="center">
+  <img src="assets/multiple_games_train.svg" width="800"/>
+</p>
+
+### Evaluation Performance
+
+Evaluation learning curves across 15 Atari games, measuring policy performance without exploration noise.
+
+<p align="center">
+  <img src="assets/multiple_games_eval.svg" width="800"/>
+</p>
+
+---
+
 ## Octopus Agent
 
-The Octopus agent extends distributional reinforcement learning by incorporating KL-based regularization into the value distribution update.
+Octopus extends distributional reinforcement learning by incorporating KL-based regularization into the value distribution update:
 
-The distributional Bellman update is defined as:
-
-$$Z(s, a) \stackrel{D}{=} R(s, a) + \alpha \tau \log \pi(a | s)+ \gamma \left(Z(S', A') - \tau \log \pi(A' | S')\right)$$
+$$
+Z(s, a) \stackrel{D}{=} R(s, a) + \alpha \tau \log \pi(a | s)
++ \gamma \left(Z(S', A') - \tau \log \pi(A' | S')\right)
+$$
 
 where:
 - $Z(s,a)$: return distribution  
-- $R(s,a)$: reward function  
 - $\pi(a|s)$: policy  
 - $\gamma$: discount factor  
 - $\alpha, \tau$: regularization coefficients  
 
-The additional log-policy terms introduce entropy-based regularization into both immediate and future returns.
-
----
-
-### Bellman Operator
-
-Let $\mathcal{Z}$ denote the space of value distributions. The Octopus Bellman operator is defined as:
-
-$$\mathcal{T}^{\pi} Z(s,a) \stackrel{D}{=}R(s,a) + \alpha \tau \log \pi(a|s)+ \gamma \left(Z(S', A') - \tau \log \pi(A'|S')\right)$$
-
-where:
-- $S' \sim P(\cdot|s,a)$: next state under environment dynamics  
-- $A' \sim \pi(\cdot|S')$: action sampled from policy  
+This formulation introduces entropy-based regularization into both immediate rewards and future returns, improving stability during training.
 
 ---
 
@@ -94,57 +102,33 @@ Ablation study evaluating the impact of Dynamic Regularization Scaling (DRS) acr
 
 ### Key Idea
 
-Octopus integrates distributional RL with adaptive regularization:
+Octopus combines distributional reinforcement learning with adaptive regularization to improve both stability and performance.
 
-- KL-based regularization improves policy stability  
-- Distributional learning captures uncertainty in returns  
-- DRS balances exploration and stability across training  
+- KL-based regularization stabilizes policy updates  
+- Distributional learning captures return uncertainty  
+- Dynamic Regularization Scaling (DRS) balances exploration and convergence  
 
----
-
-## Learning Curves
-
-### Training Performance
-
-Training learning curves across 15 Atari games, showing episode return over environment frames.
-
-<p align="center">
-  <img src="assets/multiple_games_train.svg" width="800"/>
-</p>
-
-### Evaluation Performance
-
-Evaluation learning curves across 15 Atari games, measuring policy performance without exploration noise.
-
-<p align="center">
-  <img src="assets/multiple_games_eval.svg" width="800"/>
-</p>
-
----
-
-## Code Structure
-
-Each agent directory contains an implementation of a DQN-based variant configured for Atari experiments.  
-Within each agent folder:
-
-- `agent.py` defines the agent logic, including action selection, learning updates, and agent state management.
-- `run_atari.py` provides the training entry point for running the agent on Atari environments.
-
-Shared modules at the repository root provide common infrastructure used across agents:
-
-- `networks.py` defines the Haiku neural network architectures used by the agents.
-- `replay.py` implements experience replay components.
-- `processors.py` contains standard Atari preprocessing utilities.
-- `parts.py` provides shared training and evaluation utilities, including logging, statistics accumulation, and the main run loop.
-- `atari_data.py` contains utilities related to Atari benchmark data handling.
-- `gym_atari.py` provides Atari environment setup and wrappers.
-- `plot.py` generates performance plots from saved training results.
-- `assets/` stores figures of experiment results used in the README.
-
+In addition, Octopus integrates several established RL components, including dueling networks, double Q-learning, prioritized replay, noisy networks, and multi-step learning within a unified framework.
 
 ---
 
 ## Getting Started
+
+### Requirements
+
+This repository is tested with Python 3.9 and the following key dependencies:
+
+- JAX / Haiku / RLax (core reinforcement learning framework)
+- Gym + Atari-Py (environment interface)
+- Optax / TensorFlow Probability (optimization and distributions)
+- NumPy / SciPy / Pandas (numerical computation)
+- Matplotlib (visualization)
+
+#### Notes
+
+- The implementation is based on the JAX ecosystem (JAX, Haiku, RLax).
+- Atari environments require ROM installation via `atari-py`.
+- Exact versions are fixed in `requirements.txt` for reproducibility.
 
 ### Environment Setup
 
@@ -184,6 +168,27 @@ python run_atari.py \
 - `--results_csv_path`: path to save training metrics
 
 All agents share the same training interface for consistent benchmarking.
+
+---
+
+## Code Structure
+
+Each agent directory contains an implementation of a DQN-based variant configured for Atari experiments.  
+Within each agent folder:
+
+- `agent.py` defines the agent logic, including action selection, learning updates, and agent state management.
+- `run_atari.py` provides the training entry point for running the agent on Atari environments.
+
+Shared modules at the repository root provide common infrastructure used across agents:
+
+- `networks.py` defines the Haiku neural network architectures used by the agents.
+- `replay.py` implements experience replay components.
+- `processors.py` contains standard Atari preprocessing utilities.
+- `parts.py` provides shared training and evaluation utilities, including logging, statistics accumulation, and the main run loop.
+- `atari_data.py` contains utilities related to Atari benchmark data handling.
+- `gym_atari.py` provides Atari environment setup and wrappers.
+- `plot.py` generates performance plots from saved training results.
+- `assets/` stores figures of experiment results used in the README.
 
 ---
 
@@ -232,6 +237,7 @@ results_octopus_amidar_seed1.csv
 - Results can be directly aggregated and visualized using the provided plotting utilities.
 
 ---
+
 
 ## Acknowledgements
 
