@@ -1,4 +1,3 @@
-![human_normalized_score_3](https://github.com/user-attachments/assets/fc6cc6f2-7e60-4fe9-8c12-10ec601176ea)![human_normalized_score_3 (1)](https://github.com/user-attachments/assets/fffc3305-8f03-4256-9862-59da8a440d07)
 # Octopus
 Octopus is a reinforcement learning repository built around the proposed Octopus agent, a regularized distributional DQN method for improved stability and performance.
 
