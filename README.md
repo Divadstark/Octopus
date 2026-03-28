@@ -22,7 +22,9 @@ Beyond Atari benchmarks, the Octopus framework is intended to be applicable to r
 
 
 Plot of median human-normalized score over 15 Atari games for each agent:
-![Human Normalized Score](./human_normalized_score.svg)
+<p align="center">
+  <img src="assets/human_normalized_score.svg" width="700"/>
+</p>
 
 
 ---
@@ -70,7 +72,9 @@ This schedule gradually increases the strength of regularization during training
 - **Late stage**: strong regularization → improves convergence stability  
 
 Ablation study evaluating the impact of Dynamic Regularization Scaling (DRS) across 15 Atari games:
-<img src="https://raw.githubusercontent.com/Divadstark/Octopus/main/ablation_all.svg" width="450"/>
+<p align="center">
+  <img src="assets/ablation_all.svg" width="450"/>
+</p>
 
 ---
 
