@@ -229,13 +229,3 @@ results_octopus_amidar_seed1.csv
 - A unified training interface ensures consistent evaluation across agents.
 - Results can be directly aggregated and visualized using the provided plotting utilities.
 
----
-
-
-## Acknowledgements
-
-This repository is adapted and extended from the original implementation:
-
-* DeepMind DQN Zoo: https://github.com/google-deepmind/dqn_zoo
-
-We build upon the original codebase and extend it with additional algorithms, including the proposed **Octopus** framework and related variants.
