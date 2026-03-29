@@ -1,9 +1,5 @@
 # Octopus
-Octopus is a reinforcement learning repository built around the proposed Octopus agent, a regularized distributional DQN method for improved stability and performance.
-
-It is designed to be self-contained and extensible. The repository includes Octopus together with standard baseline agents, implemented in JAX, Haiku, and RLax, and provides a unified framework for training and evaluation on the Atari 2600 benchmark.
-
-Beyond Atari benchmarks, the Octopus framework is intended to be applicable to real-world sequential decision-making problems, including electricity network optimization. This application is part of ongoing work and is not included in the current repository.
+Octopus is a novel reinforcement learning agent that introduces a regularized, distributional value-based approach to enhance both training stability and empirical performance. This repository is designed as a self-contained and extensible framework, incorporating the Octopus agent alongside standard baseline methods, all implemented using JAX, Haiku, and RLax. It provides a unified pipeline for training and evaluation on the Atari 2600 benchmark while also being structured to support broader applications in real-world sequential decision-making tasks.
 
 ---
 
